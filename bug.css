@@ -1,0 +1,10 @@
+The following CSS code snippet demonstrates an issue where the `calc()` function is used incorrectly, potentially leading to unexpected behavior or rendering errors:
+
+```css
+.element {
+  width: calc(100% - 20px);
+  height: calc(50% - 10px);
+}
+```
+
+The issue is not immediately apparent but arises when dealing with nested elements or complex layouts where percentage-based calculations are involved. The `calc()` function doesn't always handle nested percentages correctly, particularly in scenarios with scrolling or dynamic content.  For example, if the parent container of `.element` has a height that changes based on content, the `50%` calculation for the height of `.element` might not be relative to the actual rendered height of the parent, but rather an initial computed height. This could result in the element being smaller or larger than anticipated.
