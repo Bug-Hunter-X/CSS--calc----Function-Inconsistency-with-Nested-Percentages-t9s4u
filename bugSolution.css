@@ -1,0 +1,22 @@
+One approach to mitigate the issue is to avoid relying on nested percentage calculations within the `calc()` function.  Instead, consider using alternative layout methods or JavaScript to dynamically compute the element's dimensions:
+
+```css
+/* bugSolution.css */
+.element {
+  width: calc(100% - 20px);
+  height: auto; /* or use flexbox/grid for height management */
+}
+
+/* Example with Flexbox: */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.element {
+  width: calc(100% - 20px);
+  flex: 1; /* Distribute available height */
+}
+```
+
+This solution utilizes flexbox to manage the height of `.element` relative to its parent container.   If a fixed height is still needed, calculate the height dynamically using JavaScript after the parent element's height is determined. This ensures the `calc()` function is not used with uncertain percentage values.
